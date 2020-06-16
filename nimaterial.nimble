@@ -1,10 +1,8 @@
-version       = "0.2.0"
+version       = "0.2.1"
 author        = "Momeemt"
 description   = "nimaterial is a CSS output library based on material design."
 license       = "MIT"
 srcDir        = "src"
-
-# backend       = "cpp"
 
 # Dependencies
 
