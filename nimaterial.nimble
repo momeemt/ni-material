@@ -7,3 +7,4 @@ srcDir        = "src"
 # Dependencies
 
 requires "nim >= 1.0.6"
+requires "Palette >= 0.1.0"
