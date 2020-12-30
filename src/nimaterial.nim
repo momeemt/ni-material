@@ -1,6 +1,15 @@
 import tables
-import nimaterial/[color, HTMLElement]
-export color, HTMLElement
+import nimaterial/[color, HTMLElementType]
+export color, HTMLElementType
+
+type CSSObject = object
+  stackElement: string
+  elementSelector: HTML
+  classSelector: seq[string]
+  idSelector: seq[string]
+  pseudoClass: string
+  pseudoElement: string
+  pseudoSelector: string
 
 type Flex* = enum
   fStart = "start"
@@ -45,3 +54,34 @@ proc output*() =
     for key, value in resultCSS:
       stylesheet.writeLine key & "{" & value & "}"
   echo "We've successfully generated the CSS File!"
+
+type PseudoClass = enum
+  hover = "hover"
+
+proc id* (elem: HTML, name: string): string =
+  result = $elem & "#" & name
+
+proc class* (elem: HTML, name: string): string =
+  result = $elem & "." & name
+
+proc descendant* (selector: string, elem: HTML): string =
+  result = selector & " " & $elem
+
+proc pseudoClass* (selector: string, pclass: PseudoClass): string =
+  result = selector & ":" & $pclass
+
+proc child* (selector: string, elem: HTML): string =
+  result = selector & " > " & $elem
+
+type Attributes = enum
+  title
+
+proc attribute* (selector: string, elem: Attributes): string =
+  result = selector & "[" & $elem & "]"
+
+# const menuHover = divE.class("menu-hover")
+#                       .descendant(li)
+#                       .pseudoClass(hover)
+#                       .child(ul)
+
+# echo menuHover
