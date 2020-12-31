@@ -89,6 +89,6 @@ proc host_content* (selector: selector): PseudoClassFuncResult =
   let sel = fmt"host-content({$selector})".toSelector
   result = sel.toPseudoClassFuncResult
 
-proc `==`* (selector: selector): PseudoClassFuncResult =
+proc `is`* (selector: selector): PseudoClassFuncResult =
   let sel = fmt"is({selector})".toSelector
   result = sel.toPseudoClassFuncResult
