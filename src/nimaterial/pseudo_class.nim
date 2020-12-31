@@ -1,3 +1,5 @@
+import selector
+
 type PseudoClass* = enum
   active
   any_link = "any-link"
@@ -59,3 +61,6 @@ type PseudoClass* = enum
   valid
   visited
   where = "where()" # TODO: where() selector の実装
+
+proc pseudoClass* (selector: selector, class: PseudoClass): selector =
+  result = selector & ":".toSelector & ($class).toSelector
