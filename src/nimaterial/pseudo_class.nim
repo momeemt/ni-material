@@ -3,7 +3,7 @@ import selector, strformat
 type  
   PseudoClass* = enum
     active
-    any_link = "any-link"
+    `any-link`
     blank
     checked
     current
@@ -14,37 +14,37 @@ type
     empty
     enabled
     first
-    first_child = "first-child"
-    first_of_type = "first-of-type"
+    `first-child`
+    `first-of-type`
     fullscreen
     future
     focus
-    focus_visible = "focus-visible"
-    focus_within = "focus_within"
+    `focus-visible`
+    `focus-within`
     hover
     indeterminate
-    in_range = "in-range"
+    `in-range`
     invalid
-    last_child = "last-child"
-    last_of_type = "last-of-type"
+    `last-child`
+    `last_of_type`
     left
     link
-    local_link = "local-link"
-    only_child = "only-child"
-    only_of_type = "only-of-type"
+    `local-link`
+    `only-child`
+    `only-of-type`
     optional
-    out_of_range = "out-of-range"
+    `out-of-range`
     past
-    placeholder_shown = "placeholder-shown"
-    read_only = "read-only"
-    read_write = "read-write"
+    `placeholder-shown`
+    `read-only`
+    `read-write`
     required
     right
     root
     scope
     target
-    target_within = "target-within"
-    user_invalid = "user-invalid"
+    `target-within`
+    `user-invalid`
     valid
     visited
 

@@ -6,14 +6,14 @@ type
     backdrop
     before
     cue
-    cue_region = "cue-region"
-    first_letter = "first-letter"
-    first_line = "first-line"
-    grammar_error = "grammar-error"
+    `cue-region`
+    `first-letter`
+    `first-line`
+    `grammar-error`
     marker
     placeholder
     selection
-    spelling_error = "spelling-error"
+    `spelling-error`
 
   PseudoElementFuncResult = distinct string
 
