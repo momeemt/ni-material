@@ -1,12 +1,14 @@
-import HTMLElementType
-
-type selector* = distinct string
+import HTMLElementType, strformat, types
 
 proc `&`* (left, right: selector): selector {.borrow.}
+
 proc `$`* (slc: selector): string {.borrow.}
 
-proc toSelector* (str: string): selector =
-  result = selector(str)
+proc universal* (): selector =
+  result = "*".toSelector
+
+proc universal* (selector: selector): selector =
+  result = fmt"{$selector} *".toSelector
 
 proc id* (elem: HTML, name: string): selector =
   result = ($elem & "#" & name).toSelector
@@ -19,6 +21,12 @@ proc class* (elem: HTML, name: string): selector =
 
 proc class* (name: string): selector =
   result = ("." & name).toSelector
+
+proc attribute* (selector: selector, attribute: Attributes): selector =
+  result = fmt"{$selector} [{$attribute}]".toSelector
+
+proc attribute* (selector: selector, attribute: Attributes, value: string): selector =
+  result = fmt"{$selector} [{$attribute} = {$value}]".toSelector
 
 proc descendant* (selector: selector, elem: HTML): selector =
   result = selector & " ".toSelector & ($elem).toSelector

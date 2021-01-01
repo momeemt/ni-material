@@ -1,4 +1,4 @@
-import selector, strformat
+import types, selector, strformat
 
 type  
   PseudoClass* = enum
